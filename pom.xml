@@ -1,0 +1,37 @@
+
+
+<!-- If not adding the src in classpath then can use -->
+<build>
+        <sourceDirectory>src</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <warSourceDirectory>WebContent</warSourceDirectory>
+                    <warName>Service</warName>
+                </configuration>
+            </plugin>
+</build>
+
+<!-- Use to access the jars from business nexus repository -->
+<distributionManagement>
+        <repository>
+            <id>nexus-release</id>
+            <name>Nexus Releases</name>
+            <url>http://domain:8080/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Snapshots</name>
+            <url>http://neer-nexus:8080/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
