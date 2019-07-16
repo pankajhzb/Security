@@ -1,0 +1,23 @@
+/** The Constant ENCRYPTION_ALGORITHM. */
+	public static final String ENCRYPTION_ALGORITHM = "PBEWithMD5AndDES";
+
+	/** The Constant ENCRYPTION_PASSWORD. */
+	public static final String ENCRYPTION_PASSWORD = "eccstreamservejavaupgrade5.6.2";
+
+	/** The Constant ENCRYPTION_SALT_TEXT. */
+	public static final String ENCRYPTION_SALT_TEXT = "3cc!stre@m53ve!j@v@!pr0c3s5";
+  
+  public static void main(String[] args) {
+    StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
+		encryptor.setPassword(PasswordEncryptorUtil.ENCRYPTION_PASSWORD);
+		encryptor.setAlgorithm(PasswordEncryptorUtil.ENCRYPTION_ALGORITHM);
+    FixedStringSaltGenerator saltGenerator = new FixedStringSaltGenerator();
+		saltGenerator.setSalt(PasswordEncryptorUtil.ENCRYPTION_SALT_TEXT);
+		saltGenerator.setCharset(Charsets.UTF_8.name());
+		encryptor.setSaltGenerator(saltGenerator);
+    String passwordToEncrypt = "db_user_password";
+		String encryptedText = encryptor.encrypt(passwordToEncrypt);
+		System.out.println("encryptedText for '" + passwordToEncrypt + "' :: " + encryptedText);
+		String plainText = encryptor.decrypt(encryptedText);
+		System.out.println("decryptedText for '" + encryptedText + "' :: " + plainText);
+   }
