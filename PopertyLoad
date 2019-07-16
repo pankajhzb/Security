@@ -1,0 +1,41 @@
+/*
+List<String> filePath, like
+List<String> propertyList = new ArrayList<String>();
+propertyList.add("/" + env + "/database.properties");
+propertyList.add("/ENCRYPTION/encryption.properties");
+*/
+class ApplicationProperties{
+
+private ApplicationProperties(){}
+
+static public ApplicationProperties getInstance() {
+		if (null == instance) {
+			instance = new ApplicationProperties();
+		}
+   }
+
+private Properties prop = new Properties();
+
+public void loadPropertyFile(List<String> filePath) {
+
+		InputStream is;
+		try {
+			// is = new FileInputStream(propertiesFilePath);
+			for (String propertyFile : propertiesFilePath) {
+				is = this.getClass().getClassLoader().getResourceAsStream(propertyFile);
+				prop.load(is);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+  
+  // to get the properties
+  public String getProperty(String propertyName) {
+    return prop.getProperty(propertyName);
+	}
+  }
