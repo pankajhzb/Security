@@ -12,7 +12,7 @@
 	http://www.springframework.org/schema/context  
 	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	<mvc:annotation-driven />
-	<context:annotation-config />
+	<context:annotation-config /> <!-- now in spring 5.0, this config is added in component scan context -->
 	<context:component-scan base-package="com.pk.cc.*" />
 	<bean id="service" class="com.pk.cc.service.ServeServiceImpl"></bean>
 
