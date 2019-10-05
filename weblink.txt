@@ -1,0 +1,8 @@
+SSL certificate setup
+
+https://knowledge.digicert.com/solution/SO4085.html
+
+http://www.thesqlreport.com/?p=576
+
+SKIP Truststores
+https://automationrhapsody.com/send-soap-request-over-https-without-valid-certificates/
