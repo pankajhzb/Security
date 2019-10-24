@@ -6,3 +6,8 @@ http://www.thesqlreport.com/?p=576
 
 SKIP Truststores
 https://automationrhapsody.com/send-soap-request-over-https-without-valid-certificates/
+
+The .pem file that is referred to in the local path first. Just like how we imported .cer files, this also needs to be imported into the JSK (java keystore). The hash and salt values in the code must remain same.
+
+https://stackoverflow.com/questions/906402/how-to-import-an-existing-x-509-certificate-and-private-key-in-java-keystore-to 
+This link further provides input on how to import the certificate.
